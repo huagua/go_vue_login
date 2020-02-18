@@ -18,11 +18,44 @@ func UserRegister(c *gin.Context) {
 	}
 }
 
+// TrainInput 车次信息输入接口
+func TrainInput(c *gin.Context) {
+	var service service.TrainInputService
+	if err := c.ShouldBind(&service); err == nil {
+		res := service.Input()
+		c.JSON(200, res)
+	} else {
+		c.JSON(200, ErrorResponse(err))
+	}
+}
+
 // UserLogin 用户登录接口
 func UserLogin(c *gin.Context) {
 	var service service.UserLoginService
 	if err := c.ShouldBind(&service); err == nil {
 		res := service.Login(c)
+		c.JSON(200, res)
+	} else {
+		c.JSON(200, ErrorResponse(err))
+	}
+}
+
+// UserOrder 用户预定接口
+func UserOrder(c *gin.Context) {
+	var service service.UserOrderService
+	if err := c.ShouldBind(&service); err == nil {
+		res := service.Order(c)
+		c.JSON(200, res)
+	} else {
+		c.JSON(200, ErrorResponse(err))
+	}
+}
+
+// UserOrder 用户预定接口
+func UserSearch(c *gin.Context) {
+	var service service.SearchTicketService
+	if err := c.ShouldBind(&service); err == nil {
+		res := service.Search(c)
 		c.JSON(200, res)
 	} else {
 		c.JSON(200, ErrorResponse(err))

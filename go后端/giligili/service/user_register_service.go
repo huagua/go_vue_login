@@ -1,6 +1,7 @@
 package service
 
 import (
+	"giligili/cache"
 	"giligili/model"
 	"giligili/serializer"
 )
@@ -64,6 +65,8 @@ func (service *UserRegisterService) Register() serializer.Response {
 			err,
 		)
 	}
+
+	cache.RedisClient.SAdd("user", service.UserName)
 
 	// 创建用户
 	if err := model.DB.Create(&user).Error; err != nil {

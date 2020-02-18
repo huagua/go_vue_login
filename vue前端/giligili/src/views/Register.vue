@@ -39,7 +39,7 @@
         methods: {
             onSubmit() {
                 API.register(this.form).then((res) =>{
-                    if(res.status > 0){
+                    if(res.code > 0){
                         this.$notify.error({
                             title:'注册失败',
                             message:res.msg,

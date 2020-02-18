@@ -15,6 +15,47 @@ type User struct {
 	Avatar         string `gorm:"size:1000"`
 }
 
+//火车票模型
+type Train struct {
+	gorm.Model
+	TrainNum       string
+	From           string
+	To             string
+	StartTime      string
+	EndTime        string
+	Duration       string
+	Date           string
+}
+
+//空闲火车票模型
+type FreeTicket struct {
+	gorm.Model
+	TrainNum       string
+	Date           string
+	Carriage       int
+	Row            int
+	Which          string
+	Rank           string
+}
+
+type Ticket struct {
+	Carriage int
+	Row      int
+	Which    string
+	Money    int
+}
+
+type SearchTicket struct {
+	From     string
+	To       string
+	TrainNum string
+	Super    interface{}
+	First    interface{}
+	Second   interface{}
+	StartTime interface{}
+	Duration  interface{}
+}
+
 const (
 	// PassWordCost 密码加密难度
 	PassWordCost = 12

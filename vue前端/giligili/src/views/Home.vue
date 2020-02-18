@@ -1,22 +1,18 @@
 <template>
-    <div class="center1">
-        <h1>欢迎来到ABC</h1>
+    <div>
+        <h1 class="center1">请点击搜索按钮进行车票信息查询</h1>
     </div>
 </template>
 
 <script>
-    export default{
+    export default {
         name:'home',
-        components:{
 
-        },
-    };
+    }
 </script>
 
 <style>
     .center1{
-        position:absolute;
-        right: 42%;
-        left: 42%;
+        text-align: center;
     }
 </style>

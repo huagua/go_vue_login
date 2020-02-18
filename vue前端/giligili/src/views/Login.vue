@@ -29,12 +29,17 @@
         methods: {
             onSubmit() {
                 API.login(this.form).then((res) =>{
-                    if(res.status > 0){
+                    if(res.code > 0){
                         this.$notify.error({
                             title:'登录失败',
                             message:res.msg,
                         });
                     }else{
+                        this.$notify({
+                            title: '登陆成功',
+                            message: '您可使用用户名与密码登录',
+                            type:'success',
+                        });
                         this.$router.replace({path: '/'})
                     }
                 }).catch((error) =>{
