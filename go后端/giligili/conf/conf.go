@@ -11,7 +11,7 @@ import (
 
 // Init 初始化配置项
 func Init() {
-	// 从本地读取环境变量
+	// 从本地读取环境变量,用于解析.env文件
 	godotenv.Load()
 
 	// 设置日志级别
